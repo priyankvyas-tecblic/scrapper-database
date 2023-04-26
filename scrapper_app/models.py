@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django.utils.timezone import now
 # Create your models here.
 
 class LinkedinPost(models.Model):
@@ -11,6 +12,7 @@ class LinkedinPost(models.Model):
     comments = models.IntegerField(_("Total Comments of Comment"))
     views = models.CharField(_('Post Views'),max_length=40)
     media_link = models.TextField(_('Media Links'))
+    date_on_create = models.DateField(_("Date on Create"), default=now())
 
 class CompanyList(models.Model):
     company_urls = models.CharField(_("Company Urls"), max_length=150)
